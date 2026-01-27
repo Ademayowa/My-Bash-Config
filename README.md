@@ -36,3 +36,28 @@ Then use `Ctrl + R` to search history - the selected command will appear in your
 - FZF must be installed: `sudo apt install fzf`
 - Starship prompt configuration is separate from bash config
 - Always reload config after changes: `source ~/.bashrc`
+
+
+## My Tmux Settings
+
+# Let Starship & terminal colors pass through
+set -g allow-passthrough on
+# True color support
+set -g default-terminal "tmux-256color"
+set -ga terminal-overrides ",xterm-256color:Tc"
+# Status bar: use a subtle dark background that matches the theme
+set -g status on
+set -g status-position bottom
+# Changed: using a dark gray/charcoal background (#2d2d2d or #1e1e1e work well with dark themes)
+set -g status-style bg=#2d2d2d,fg=#a8a8a8
+# Left: session name (subtle)
+set -g status-left-length 40
+set -g status-left "#[bold,fg=#d4d4d4] #S #[default]"
+# Right: date & time (clean)
+set -g status-right-length 60
+set -g status-right "#[fg=#d4d4d4]%Y-%m-%d %H:%M"
+# Window tabs (minimal, modern)
+setw -g window-status-format " #I:#W "
+setw -g window-status-current-format "#[bold,fg=#569cd6] #I:#W "
+setw -g window-status-style bg=#2d2d2d,fg=#808080
+setw -g window-status-current-style bg=#2d2d2d,fg=#569cd6
