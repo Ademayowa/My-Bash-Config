@@ -38,8 +38,13 @@ Then use `Ctrl + R` to search history - the selected command will appear in your
 - Always reload config after changes: `source ~/.bashrc`
 
 
-## My Tmux Settings
+# Tmux Configuration
 
+Enhanced tmux configuration with colored status bar background.
+
+## Configuration
+
+```bash
 # Let Starship & terminal colors pass through
 set -g allow-passthrough on
 # True color support
@@ -61,3 +66,19 @@ setw -g window-status-format " #I:#W "
 setw -g window-status-current-format "#[bold,fg=#569cd6] #I:#W "
 setw -g window-status-style bg=#2d2d2d,fg=#808080
 setw -g window-status-current-style bg=#2d2d2d,fg=#569cd6
+```
+
+## Color Options
+
+You can customize the background color by changing the `bg=` value in `status-style`:
+
+- **#2d2d2d** - Default dark gray (recommended)
+- **#1e1e1e** - Darker charcoal
+- **#3a3a3a** - Lighter gray
+
+## Installation
+
+1. Copy the configuration to `~/.tmux.conf`
+2. Reload tmux: `tmux source-file ~/.tmux.conf`
+3. Or restart your tmux session
+
