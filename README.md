@@ -37,6 +37,41 @@ Then use `Ctrl + R` to search history - the selected command will appear in your
 - Starship prompt configuration is separate from bash config
 - Always reload config after changes: `source ~/.bashrc`
 
+# Removing starship default icons
+Paste this directly in the terminal:
+
+cat > ~/.config/starship.toml << 'EOF'
+format = """
+$directory$character"""
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "❯"
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style)"
+style = "bold cyan"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+disabled = true
+
+[git_status]
+disabled = true
+
+[aws]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[nodejs]
+source ~/.bashrc
+
 
 # Tmux Configuration
 
